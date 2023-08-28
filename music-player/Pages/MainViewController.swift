@@ -13,9 +13,20 @@ class MainViewController: UITabBarController {
     }
     
     override func awakeFromNib() {
-        self.viewControllers?[0].tabBarItem.title = NSLocalizedString("home_title", comment: "")
-        self.viewControllers?[1].tabBarItem.title = NSLocalizedString("search_title", comment: "")
-        self.viewControllers?[2].tabBarItem.title = NSLocalizedString("settings_title", comment: "")
+        if let item = self.viewControllers?[0].tabBarItem {
+            item.title = NSLocalizedString("home_title", comment: "")
+            item.image = UIImage(named: "HomeNavigationNonActiveIcon")
+            item.selectedImage = UIImage(named: "HomeNavigationActiveIcon")
+        }
+        if let item = self.viewControllers?[1].tabBarItem {
+            item.title = NSLocalizedString("search_title", comment: "")
+            item.image = UIImage(named: "SearchNavigationIcon")
+        }
+        if let item = self.viewControllers?[2].tabBarItem {
+            item.title = NSLocalizedString("settings_title", comment: "")
+            item.image = UIImage(named: "SettingsNavigationNonActiveIcon")
+            item.selectedImage = UIImage(named: "SettingsNavigationActiveIcon")
+        }
     }
 
     /*
