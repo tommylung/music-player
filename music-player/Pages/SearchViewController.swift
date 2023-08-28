@@ -26,19 +26,23 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // MARK: - Core
     
     private func initUI() {
+        self.vm.arrTrack.removeAll()
+        self.vm.arrPlayedTrack.removeAll()
+        
         self.navigationItem.title = NSLocalizedString("search_title", comment: "")
         self.sbSearch.placeholder = NSLocalizedString("common_search", comment: "")
         self.lblNoRecord.text = NSLocalizedString("no_record", comment: "")
         self.lblNoRecord.isHidden = false
         self.aivActivity.isHidden = true
+        self.tvSearch.isHidden = true
+        self.tvSearch.register(SearchTableViewCell.self, forCellReuseIdentifier: String(describing: SearchTableViewCell.self))
     }
     
     private func bindUI() {
-        self.vm.psLoading.subscribe(onNext: { [weak self] b in
+        self.vm.psLoading.subscribe(onNext: { [weak self] bLoading in
             guard self != nil else { return }
-            
-            self?.lblNoRecord.isEnabled = false
-            self?.aivActivity.isHidden = b
+            bLoading ? self?.aivActivity.startAnimating() : self?.aivActivity.stopAnimating()
+            self?.aivActivity.isHidden = !bLoading
         }).disposed(by: self.disposeBag)
         
         self.vm.psError.subscribe(onNext: { [weak self] error in
@@ -65,16 +69,29 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     // MARK: - UISearchBar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.lblNoRecord.isHidden = true
         self.vm.searchMusic(term: self.sbSearch.text, offset: 20, limit: 20)
         self.sbSearch.resignFirstResponder()
     }
     
     // MARK: - UITableViewDataSource, UITableViewDelegate
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.tvSearch.dequeueReusableCell(withIdentifier: String(describing: SearchTableViewCell.self), for: indexPath) as! SearchTableViewCell
+        
+        if self.vm.arrTrack.count > indexPath.row {
+            let track = self.vm.arrTrack[indexPath.row] as NSDictionary
+            cell.updateData(arkworkUrl: track.object(forKey: "artworkUrl60") as? String, trackName: track.object(forKey: "trackName") as? String, artistName: track.object(forKey: "artistName") as? String)
+        }
+        
+        return cell
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.vm.arrTrack.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tvSearch.deselectRow(at: indexPath, animated: true)
+    }
+
 }

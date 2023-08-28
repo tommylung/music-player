@@ -21,6 +21,7 @@
 		8B4FC20A2A9C86B9001976C7 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B4FC2092A9C86B9001976C7 /* Search.storyboard */; };
 		8B4FC20D2A9C8774001976C7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FC20B2A9C8774001976C7 /* SearchTableViewCell.swift */; };
 		8B4FC2122A9C8D21001976C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FC2112A9C8D20001976C7 /* MainViewController.swift */; };
+		8B4FC2152A9C9B69001976C7 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FC2142A9C9B69001976C7 /* UIImageViewExtension.swift */; };
 		8BEC0C962A987790005CDF32 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEC0C952A987790005CDF32 /* SearchViewController.swift */; };
 		8BEC0C982A98874E005CDF32 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEC0C972A98874E005CDF32 /* SearchViewModel.swift */; };
 		9F2347C20E7E9BCE947F99DF /* Pods_music_player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A47F74D22176BC9764A0DA8 /* Pods_music_player.framework */; };
@@ -47,6 +48,7 @@
 		8B4FC2092A9C86B9001976C7 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		8B4FC20B2A9C8774001976C7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8B4FC2112A9C8D20001976C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8B4FC2142A9C9B69001976C7 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		8BEC0C952A987790005CDF32 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		8BEC0C972A98874E005CDF32 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		F74EDAA0E7AA37E15B3DEF09 /* Pods-music-player.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-music-player.release.xcconfig"; path = "Target Support Files/Pods-music-player/Pods-music-player.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				8BEC0C932A987458005CDF32 /* Components */,
 				8B4FC1FB2A9C8072001976C7 /* Enumerates */,
+				8B4FC2132A9C9B54001976C7 /* Extensions */,
 				8BEC0C912A987438005CDF32 /* Pages */,
 				8BEC0C922A987448005CDF32 /* Resources */,
 				8B4FC1F82A9C7FBE001976C7 /* Utilities */,
@@ -128,6 +131,14 @@
 			children = (
 			);
 			path = Enumerates;
+			sourceTree = "<group>";
+		};
+		8B4FC2132A9C9B54001976C7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B4FC2142A9C9B69001976C7 /* UIImageViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		8BEC0C912A987438005CDF32 /* Pages */ = {
@@ -292,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4FC2152A9C9B69001976C7 /* UIImageViewExtension.swift in Sources */,
 				8BEC0C982A98874E005CDF32 /* SearchViewModel.swift in Sources */,
 				8BEC0C962A987790005CDF32 /* SearchViewController.swift in Sources */,
 				8B4FC1F52A9C353D001976C7 /* SettingsViewController.swift in Sources */,

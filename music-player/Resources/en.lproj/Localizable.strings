@@ -4,6 +4,8 @@
   
 */
 
+"common_cancel" = "Cancel";
+"common_go_to_settings" = "Go to Settings";
 "common_search" = "Search";
 
 "home_title" = "Home";
@@ -12,4 +14,6 @@
 "no_record" = "No record";
 
 "settings_title" = "Settings";
-"language_settings" = "Language";
+"language_settings" = "Languages";
+"change_language_title" = "Change language";
+"change_language_message" = "If you want to change the app language, please go to settings and change the language for app.";

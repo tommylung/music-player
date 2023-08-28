@@ -1,9 +1,11 @@
-/* 
+/*
   Localizable.strings
   music-player
   
 */
 
+"common_cancel" = "取消";
+"common_go_to_settings" = "前往设定";
 "common_search" = "搜索";
 
 "home_title" = "主页";
@@ -13,3 +15,5 @@
 
 "settings_title" = "设定";
 "language_settings" = "语言";
+"change_language_title" = "更改语言";
+"change_language_message" = "如阁下需要更改程式语言，请前往“设定”以更改程式语言。";

@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" title="Title" id="UjA-lX-MPH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tbvTable" destination="X99-tv-eLU" id="wre-QW-PKr"/>
+                        <outlet property="tvTable" destination="X99-tv-eLU" id="XNa-Dc-Y0I"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kM-9i-wTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
