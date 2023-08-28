@@ -22,10 +22,10 @@ class SearchViewModel {
     func searchMusic(term strTerm: String?, offset intOffset: Int?, limit intLimit: Int?) {
         var lang = ""
         if (Locale.current.languageCode == "zh") {
-            if (Locale.current.regionCode == "HK") {
-                lang = Enum.Language.zh_hk.rawValue
-            } else {
+            if (Locale.current.scriptCode == "Hans") {
                 lang = Enum.Language.zh_cn.rawValue
+            } else {
+                lang = Enum.Language.zh_hk.rawValue
             }
         } else {
             lang = Enum.Language.en.rawValue
