@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  music-player
+  
+*/
+
+"common_search" = "Search";
+
+"home_title" = "Home";
+
+"search_title" = "Search";
+"no_record" = "No record";
+
+"settings_title" = "Settings";
+"language_settings" = "Language";
