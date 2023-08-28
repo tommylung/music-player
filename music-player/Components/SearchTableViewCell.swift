@@ -3,6 +3,7 @@
 //  music-player
 //
 
+import AlamofireImage
 import RxSwift
 import SnapKit
 import UIKit
@@ -73,7 +74,7 @@ class SearchTableViewCell: UITableViewCell {
         self.refresh()
         
         if let strArkworkUrl = strArkworkUrl {
-            self.imgvArtwork.requestImage(url: strArkworkUrl)
+            self.imgvArtwork.af.setImage(withURL: URL(string: strArkworkUrl)!)
         }
         if let strTrackName = strTrackName {
             self.lblTrackName.text = strTrackName

@@ -16,8 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="iyA-L2-NPy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a2F-GQ-d5K">
+                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="UQC-hx-R11"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a2F-GQ-d5K" firstAttribute="top" secondItem="UQC-hx-R11" secondAttribute="top" id="2mi-n4-IKe"/>
+                            <constraint firstItem="UQC-hx-R11" firstAttribute="bottom" secondItem="a2F-GQ-d5K" secondAttribute="bottom" id="HEn-0L-VLM"/>
+                            <constraint firstItem="UQC-hx-R11" firstAttribute="trailing" secondItem="a2F-GQ-d5K" secondAttribute="trailing" id="y9E-bs-izG"/>
+                            <constraint firstItem="a2F-GQ-d5K" firstAttribute="leading" secondItem="UQC-hx-R11" secondAttribute="leading" id="ynk-hd-Jy1"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="Nq5-QL-x8X"/>
                 </viewController>

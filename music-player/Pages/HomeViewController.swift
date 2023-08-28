@@ -17,7 +17,14 @@ class HomeViewController: UIViewController {
     //MARK: - Core
     
     private func initUI() {
-        self.navigationItem.title = NSLocalizedString("home_title", comment: "")
+        let currentHour = Calendar.current.component(.hour, from: Date())
+        if (currentHour >= 0 && currentHour < 12) {
+            self.navigationItem.title = NSLocalizedString("home_goodmorning", comment: "")
+        } else if (currentHour >= 12 && currentHour < 18) {
+            self.navigationItem.title = NSLocalizedString("home_goodafternoon", comment: "")
+        } else {
+            self.navigationItem.title = NSLocalizedString("home_goodnight", comment: "")
+        }
     }
     
     private func bindUI() {
