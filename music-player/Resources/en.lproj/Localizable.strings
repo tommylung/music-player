@@ -9,6 +9,9 @@
 "common_search" = "Search";
 
 "home_title" = "Home";
+"home_goodmorning" = "Good morning";
+"home_goodafternoon" = "Good afternoon";
+"home_goodnight" = "Good night";
 
 "search_title" = "Search";
 "no_record" = "No record";

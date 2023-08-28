@@ -53,11 +53,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         self.vm.psSearchMusic.subscribe(onNext: { [weak self] response in
             guard let self = self else { return }
             
-            if let results = response.object(forKey: "results") as? Array<NSDictionary> {
-                self.vm.arrTrack = results
-                self.lblNoRecord.isHidden = results.count > 0
-                self.tvSearch.isHidden = !(results.count > 0)
-            }
+            self.vm.arrTrack = response.results
+            self.lblNoRecord.isHidden = response.results.count > 0
+            self.tvSearch.isHidden = !(response.results.count > 0)
             
             self.tvSearch.reloadData()
         }).disposed(by: self.disposeBag)
@@ -70,7 +68,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // MARK: - UISearchBar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.lblNoRecord.isHidden = true
+        self.tvSearch.isHidden = true
+        self.vm.arrTrack.removeAll()
+        self.tvSearch.reloadData()
+        
         self.vm.searchMusic(term: self.sbSearch.text, offset: 20, limit: 20)
+        
         self.sbSearch.resignFirstResponder()
     }
     
@@ -79,8 +82,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         let cell = self.tvSearch.dequeueReusableCell(withIdentifier: String(describing: SearchTableViewCell.self), for: indexPath) as! SearchTableViewCell
         
         if self.vm.arrTrack.count > indexPath.row {
-            let track = self.vm.arrTrack[indexPath.row] as NSDictionary
-            cell.updateData(arkworkUrl: track.object(forKey: "artworkUrl60") as? String, trackName: track.object(forKey: "trackName") as? String, artistName: track.object(forKey: "artistName") as? String)
+            let track = self.vm.arrTrack[indexPath.row] as Result
+            cell.updateData(arkworkUrl: track.artworkUrl60, trackName: track.trackName, artistName: track.artistName)
         }
         
         return cell
