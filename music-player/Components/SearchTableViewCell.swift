@@ -15,6 +15,7 @@ class SearchTableViewCell: UITableViewCell {
     var imgvArtwork = UIImageView()
     var lblTrackName = UILabel()
     var lblArtistName = UILabel()
+    var btnFavourite = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

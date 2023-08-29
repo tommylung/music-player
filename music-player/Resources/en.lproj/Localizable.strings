@@ -14,6 +14,7 @@
 "home_goodnight" = "Good night";
 
 "search_title" = "Search";
+"search_result" = "Found %d record(s)";
 "search_no_record" = "No record";
 "search_error" = "Error";
 "saerch_search_again" = "Search Again";

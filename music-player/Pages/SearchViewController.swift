@@ -11,9 +11,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     var disposeBag = DisposeBag()
     var vm = SearchViewModel()
     
-    @IBOutlet weak var scType:UISegmentedControl!
-    @IBOutlet weak var scCountry:UISegmentedControl!
+    @IBOutlet weak var scMedia: UISegmentedControl!
+    @IBOutlet weak var scCountry: UISegmentedControl!
     @IBOutlet weak var sbSearch: UISearchBar!
+    @IBOutlet weak var lblResult: UILabel!
     @IBOutlet weak var lblNoRecord: UILabel!
     @IBOutlet weak var btnSearchAgain: UIButton!
     @IBOutlet weak var aivActivity: UIActivityIndicatorView!
@@ -30,19 +31,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     private func initUI() {
         self.vm.arrTrack.removeAll()
-        self.vm.arrPlayedTrack.removeAll()
         self.vm.iCurrentPage = 1
         
         self.navigationItem.title = NSLocalizedString("search_title", comment: "")
         self.sbSearch.placeholder = NSLocalizedString("common_search", comment: "")
         self.lblNoRecord.text = NSLocalizedString("search_no_record", comment: "")
+        self.lblResult.isHidden = true
+        self.lblResult.text = nil
         self.btnSearchAgain.setTitle(NSLocalizedString("saerch_search_again", comment: ""), for: .normal)
         
-        self.scType.removeAllSegments()
+        self.scMedia.removeAllSegments()
         for mediaType in Enum.MediaType.allCases {
-            self.scType.insertSegment(withTitle: NSLocalizedString(mediaType.localizationString, comment: "") , at: Enum.MediaType.allCases.count, animated: false)
+            self.scMedia.insertSegment(withTitle: NSLocalizedString(mediaType.localizationString, comment: "") , at: Enum.MediaType.allCases.count, animated: false)
         }
-        self.scType.selectedSegmentIndex = 0
+        self.scMedia.selectedSegmentIndex = 0
         self.scCountry.removeAllSegments()
         for country in Enum.Country.allCases {
             self.scCountry.insertSegment(withTitle: NSLocalizedString(country.localizationString, comment: "") , at: Enum.Country.allCases.count, animated: false)
@@ -70,6 +72,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             
             print("Error: \(error)")
             
+            self.lblResult.isHidden = true
             self.lblNoRecord.text = NSLocalizedString("search_error", comment: "")
             self.lblNoRecord.isHidden = false
             self.btnSearchAgain.isHidden = false
@@ -84,10 +87,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             }
             self.vm.arrTrack.append(contentsOf: response.results)
             
+            self.lblResult.text = String(format: (NSLocalizedString("search_result", comment: "") as NSString) as String, self.vm.arrTrack.count)
+            self.lblResult.isHidden = !(self.vm.arrTrack.count > 0)
             self.lblNoRecord.text = NSLocalizedString("search_no_record", comment: "")
-            self.lblNoRecord.isHidden = response.results.count > 0
+            self.lblNoRecord.isHidden = self.vm.arrTrack.count > 0
             self.btnSearchAgain.isHidden = true
-            self.tvSearch.isHidden = !(response.results.count > 0)
+            self.tvSearch.isHidden = !(self.vm.arrTrack.count > 0)
             
             self.tvSearch.reloadData()
         }).disposed(by: self.disposeBag)
@@ -102,6 +107,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         self.btnSearchAgain.isHidden = true
         self.tvSearch.isHidden = true
         if (initSearch) {
+            self.lblResult.isHidden = true
             self.vm.arrTrack.removeAll()
             self.vm.iCurrentPage = 1
         }
@@ -110,9 +116,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     private func search() {
         self.vm.searchMusic(term: self.sbSearch.text ?? "",
-                            media: Enum.MediaType.allCases[self.scType.selectedSegmentIndex].rawValue,
+                            media: Enum.MediaType.allCases[self.scMedia.selectedSegmentIndex].rawValue,
                             country: Enum.Country.allCases[self.scCountry.selectedSegmentIndex].code)
     }
+    
+    // MARK: - UISegmentedControl
+    
+    @IBAction func segmentedValueChanged(_ sender: Any) {
+        self.vm.arrTrack.removeAll()
+        self.vm.iCurrentPage = 1
+        self.search()
+        self.sbSearch.resignFirstResponder()
+    }
+    
     
     // MARK: - UISearchBar
     
@@ -123,12 +139,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         
         self.sbSearch.resignFirstResponder()
     }
-    
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        self.updateUI(initSearch: true)
-//
-//        self.search()
-//    }
     
     // MARK: - UITableViewDataSource, UITableViewDelegate
     

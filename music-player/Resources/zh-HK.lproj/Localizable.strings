@@ -14,6 +14,7 @@
 "home_goodnight" = "晚安";
 
 "search_title" = "搜尋";
+"search_result" = "總共搜尋到%d首";
 "search_no_record" = "沒有紀錄";
 "search_error" = "發生錯誤";
 "saerch_search_again" = "重新搜尋";

@@ -11,7 +11,6 @@ class SearchViewModel {
     var disposeBag = DisposeBag()
     
     var arrTrack = [Result]()
-    var arrPlayedTrack = [Result]()
     var iCurrentTrack = 0
     var iCurrentPage = 1
     var iTrackPerPage = 20
