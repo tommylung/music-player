@@ -14,7 +14,21 @@
 "home_goodnight" = "晚安";
 
 "search_title" = "搜尋";
-"no_record" = "沒有紀錄";
+"search_no_record" = "沒有紀錄";
+"search_error" = "發生錯誤";
+"saerch_search_again" = "重新搜尋";
+
+"musictype_all" = "所有";
+"musictype_movie" = "電影";
+"musictype_music" = "音樂";
+"musictype_music_video" = "MV";
+"musictype_tvshow" = "電視劇";
+
+"country_all" = "所有";
+"country_cn" = "中國";
+"country_hk" = "香港";
+"country_tw" = "臺灣";
+"country_us" = "美國";
 
 "settings_title" = "設定";
 "language_settings" = "語言";

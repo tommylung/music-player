@@ -6,7 +6,6 @@
 import Alamofire
 import Foundation
 import RxSwift
-import SwiftyJSON
 
 class SearchViewModel {
     var disposeBag = DisposeBag()
@@ -14,12 +13,15 @@ class SearchViewModel {
     var arrTrack = [Result]()
     var arrPlayedTrack = [Result]()
     var iCurrentTrack = 0
+    var iCurrentPage = 1
+    var iTrackPerPage = 20
+    var bEnd = false
     
     let psLoading = PublishSubject<Bool>()
     let psError = PublishSubject<Error>()
     let psSearchMusic = PublishSubject<(Response)>()
     
-    func searchMusic(term strTerm: String?, offset intOffset: Int?, limit intLimit: Int?) {
+    func searchMusic(term strTerm: String, media strMedia: String, country strCountry: String) {
         var lang = ""
         if (Locale.current.languageCode == "zh") {
             if (Locale.current.scriptCode == "Hans") {
@@ -31,10 +33,12 @@ class SearchViewModel {
             lang = Enum.Language.en.rawValue
         }
         
-        let params: Parameters = ["term": strTerm ?? "",
-                                  "offset": intOffset ?? "",
-                                  "limit": intLimit ?? "",
-                                  "lang": lang]
+        let params: Parameters = ["term": strTerm.replacingOccurrences(of: " ", with: "+"),
+                                  "offset": self.iCurrentPage * self.iTrackPerPage,
+                                  "limit": 20,
+                                  "lang": lang,
+                                  "media": strMedia,
+                                  "country": strCountry]
         self.psLoading.onNext(true)
         
         AF.request("https://itunes.apple.com/search", method: .get, parameters: params).responseDecodable(of: Response.self, queue: .main) { res in

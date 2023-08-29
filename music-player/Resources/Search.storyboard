@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,31 +36,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-fH-uRl">
-                                <rect key="frame" x="0.0" y="155" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                                <connections>
-                                    <outlet property="delegate" destination="Pui-W7-d0Y" id="vBu-Xp-FQT"/>
-                                </connections>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ske-9r-wC2">
+                                <rect key="frame" x="8" y="155" width="377" height="128"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bTI-dU-fde">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3uJ-GE-TkL">
+                                        <rect key="frame" x="0.0" y="36" width="377" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-fH-uRl">
+                                        <rect key="frame" x="0.0" y="72" width="377" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="Pui-W7-d0Y" id="vBu-Xp-FQT"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                            </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RGG-cO-Tay">
-                                <rect key="frame" x="0.0" y="211" width="393" height="558"/>
+                                <rect key="frame" x="0.0" y="283" width="393" height="486"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHB-DC-hqi">
-                                        <rect key="frame" x="158.66666666666666" y="268.66666666666669" width="76" height="21"/>
+                                        <rect key="frame" x="158.66666666666666" y="233" width="76" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="2E8-m7-3Eb">
-                                        <rect key="frame" x="186.66666666666666" y="269" width="20" height="20"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2e-8u-U3F">
+                                        <rect key="frame" x="173.66666666666666" y="273.33333333333337" width="46" height="30"/>
+                                        <color key="tintColor" name="MainColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="btnSearchAgainOnClick:" destination="Pui-W7-d0Y" eventType="touchUpInside" id="yTQ-ey-Fyu"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2E8-m7-3Eb">
+                                        <rect key="frame" x="186.66666666666666" y="233" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="811-YR-R6W">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="558"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="486"/>
                                         <connections>
                                             <outlet property="dataSource" destination="Pui-W7-d0Y" id="BaG-sh-vqF"/>
                                             <outlet property="delegate" destination="Pui-W7-d0Y" id="k0y-qs-ThV"/>
@@ -73,7 +102,9 @@
                                     <constraint firstAttribute="trailing" secondItem="811-YR-R6W" secondAttribute="trailing" id="K3E-3W-nn0"/>
                                     <constraint firstItem="2E8-m7-3Eb" firstAttribute="centerY" secondItem="RGG-cO-Tay" secondAttribute="centerY" id="Kxw-Ir-kCq"/>
                                     <constraint firstItem="811-YR-R6W" firstAttribute="top" secondItem="RGG-cO-Tay" secondAttribute="top" id="MMr-Cj-5m2"/>
+                                    <constraint firstItem="T2e-8u-U3F" firstAttribute="top" secondItem="pHB-DC-hqi" secondAttribute="bottom" constant="20" id="UgJ-Gb-yVG"/>
                                     <constraint firstItem="pHB-DC-hqi" firstAttribute="centerX" secondItem="RGG-cO-Tay" secondAttribute="centerX" id="Zub-Jy-3bR"/>
+                                    <constraint firstItem="T2e-8u-U3F" firstAttribute="centerX" secondItem="RGG-cO-Tay" secondAttribute="centerX" id="qsA-xW-9MG"/>
                                     <constraint firstItem="2E8-m7-3Eb" firstAttribute="centerX" secondItem="RGG-cO-Tay" secondAttribute="centerX" id="sTt-Ak-yuH"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pHB-DC-hqi" secondAttribute="trailing" constant="10" id="uao-pg-Hhk"/>
                                     <constraint firstAttribute="bottom" secondItem="811-YR-R6W" secondAttribute="bottom" id="vPK-S3-tgn"/>
@@ -84,20 +115,23 @@
                         <viewLayoutGuide key="safeArea" id="Wgu-pO-pHp"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RGG-cO-Tay" firstAttribute="top" secondItem="Ske-9r-wC2" secondAttribute="bottom" id="413-xa-SLB"/>
                             <constraint firstItem="RGG-cO-Tay" firstAttribute="leading" secondItem="Wgu-pO-pHp" secondAttribute="leading" id="AfQ-QT-dhM"/>
-                            <constraint firstItem="zRe-fH-uRl" firstAttribute="top" secondItem="Wgu-pO-pHp" secondAttribute="top" id="Oe6-j0-aec"/>
-                            <constraint firstItem="Wgu-pO-pHp" firstAttribute="trailing" secondItem="zRe-fH-uRl" secondAttribute="trailing" id="Wwo-qQ-Dhj"/>
-                            <constraint firstItem="zRe-fH-uRl" firstAttribute="leading" secondItem="Wgu-pO-pHp" secondAttribute="leading" id="d0m-d8-Fw2"/>
                             <constraint firstItem="Wgu-pO-pHp" firstAttribute="bottom" secondItem="RGG-cO-Tay" secondAttribute="bottom" id="dkp-5U-XI3"/>
-                            <constraint firstItem="RGG-cO-Tay" firstAttribute="top" secondItem="zRe-fH-uRl" secondAttribute="bottom" id="dyW-ND-UOJ"/>
+                            <constraint firstItem="Ske-9r-wC2" firstAttribute="leading" secondItem="Wgu-pO-pHp" secondAttribute="leading" constant="8" id="jbf-hX-feq"/>
                             <constraint firstItem="Wgu-pO-pHp" firstAttribute="trailing" secondItem="RGG-cO-Tay" secondAttribute="trailing" id="nba-RJ-ILz"/>
+                            <constraint firstItem="Ske-9r-wC2" firstAttribute="top" secondItem="Wgu-pO-pHp" secondAttribute="top" id="ssW-wf-SKn"/>
+                            <constraint firstItem="Wgu-pO-pHp" firstAttribute="trailing" secondItem="Ske-9r-wC2" secondAttribute="trailing" constant="8" id="uv3-Yi-HcW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="9Zr-DQ-CDA"/>
                     <connections>
                         <outlet property="aivActivity" destination="2E8-m7-3Eb" id="uJF-tj-uLJ"/>
+                        <outlet property="btnSearchAgain" destination="T2e-8u-U3F" id="ckb-wq-hbd"/>
                         <outlet property="lblNoRecord" destination="pHB-DC-hqi" id="IDe-hy-5YA"/>
                         <outlet property="sbSearch" destination="zRe-fH-uRl" id="RgO-NP-3YR"/>
+                        <outlet property="scCountry" destination="3uJ-GE-TkL" id="Nuy-3K-abs"/>
+                        <outlet property="scType" destination="bTI-dU-fde" id="APB-0d-Twg"/>
                         <outlet property="tvSearch" destination="811-YR-R6W" id="loZ-9v-gl7"/>
                     </connections>
                 </viewController>
@@ -107,6 +141,9 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="MainColor">
+            <color red="0.40392156862745099" green="0.31372549019607843" blue="0.64313725490196083" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

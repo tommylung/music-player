@@ -14,7 +14,21 @@
 "home_goodnight" = "Good night";
 
 "search_title" = "Search";
-"no_record" = "No record";
+"search_no_record" = "No record";
+"search_error" = "Error";
+"saerch_search_again" = "Search Again";
+
+"musictype_all" = "All";
+"musictype_movie" = "Movie";
+"musictype_music" = "Music";
+"musictype_music_video" = "MV";
+"musictype_tvshow" = "TV Show";
+
+"country_all" = "All";
+"country_cn" = "CN";
+"country_hk" = "HK";
+"country_tw" = "TW";
+"country_us" = "US";
 
 "settings_title" = "Settings";
 "language_settings" = "Languages";

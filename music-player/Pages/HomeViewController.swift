@@ -7,11 +7,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var skv: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
         self.bindUI()
         self.fetchData()
+        self.updateUI()
     }
     
     //MARK: - Core
@@ -33,6 +36,13 @@ class HomeViewController: UIViewController {
     
     private func fetchData() {
         
+    }
+    
+    private func updateUI() {
+        let vSong: HomeSongView = HomeSongView()
+        vSong.setTitle(title: "Testing")
+
+        self.skv.addArrangedSubview(vSong)
     }
 }
 

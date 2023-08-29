@@ -14,7 +14,21 @@
 "home_goodnight" = "晚安";
 
 "search_title" = "搜索";
-"no_record" = "没有纪录";
+"search_no_record" = "没有纪录";
+"search_error" = "发生错误";
+"saerch_search_again" = "重新搜索";
+
+"musictype_all" = "所有";
+"musictype_movie" = "电影";
+"musictype_music" = "音乐";
+"musictype_music_video" = "MV";
+"musictype_tvshow" = "电视剧";
+
+"country_all" = "所有";
+"country_cn" = "中国";
+"country_hk" = "香港";
+"country_tw" = "台湾";
+"country_us" = "美国";
 
 "settings_title" = "设定";
 "language_settings" = "语言";

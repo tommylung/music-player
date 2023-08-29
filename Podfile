@@ -10,5 +10,4 @@ target 'music-player' do
   pod 'AlamofireImage', '= 4.2.0'
   pod 'RxSwift', '= 6.5.0'
   pod 'SnapKit', '= 5.6.0'
-  pod 'SwiftyJSON', '= 5.0.1'
 end
