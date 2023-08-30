@@ -78,7 +78,9 @@
    self.player.play()
    ```
 
-   </details>
+5. Done :beers:.
+
+</details>
 
 <details>
 <summary>Use model presentation</summary>
@@ -94,4 +96,6 @@
    ```
 
 3. When user clicked **Favourite** button in the player, the track will add into **Favourite**. User can browse the track which can be accessed later on the top of home page.
+
+4. Done :beers:.
 </details>
