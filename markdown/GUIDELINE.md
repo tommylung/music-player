@@ -20,4 +20,6 @@
 
 5. Build the app through XCode.
 
-6. Enjoy :beers:.
+6. The app support :sun_with_face: **Light mode** and :new_moon_with_face: **Dark mode**. Please feel free to change the display mode and see the different.
+
+7. Enjoy :beers:.
