@@ -8,7 +8,6 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
     
-    var disposeBag = DisposeBag()
     var vm = SearchViewModel()
     
     @IBOutlet weak var scMedia: UISegmentedControl!
@@ -65,7 +64,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             bLoading ? self.aivActivity.startAnimating() : self.aivActivity.stopAnimating()
             self.aivActivity.isHidden = !bLoading
             self.btnSearchAgain.isHidden = true
-        }).disposed(by: self.disposeBag)
+        }).disposed(by: self.vm.disposeBag)
         
         self.vm.psError.subscribe(onNext: { [weak self] error in
             guard let self = self else { return }
@@ -77,7 +76,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             self.lblNoRecord.isHidden = false
             self.btnSearchAgain.isHidden = false
             self.tvSearch.isHidden = true
-        }).disposed(by: self.disposeBag)
+        }).disposed(by: self.vm.disposeBag)
         
         self.vm.psSearchMusic.subscribe(onNext: { [weak self] response in
             guard let self = self else { return }
@@ -97,7 +96,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             self.tvSearch.isHidden = !(self.vm.arrTrack.count > 0)
             
             self.tvSearch.reloadData()
-        }).disposed(by: self.disposeBag)
+        }).disposed(by: self.vm.disposeBag)
     }
     
     private func fetchData() {
