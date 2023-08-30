@@ -12,6 +12,11 @@
 "home_goodmorning" = "Good morning";
 "home_goodafternoon" = "Good afternoon";
 "home_goodnight" = "Good night";
+"home_favourite" = "Favourite";
+"home_song1" = "Kaho Hung";
+"home_song2" = "MC Cheung";
+"home_song3" = "Terence Lam";
+
 
 "search_title" = "Search";
 "search_result" = "Found %d record(s)";

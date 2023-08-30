@@ -82,6 +82,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         self.vm.psSearchMusic.subscribe(onNext: { [weak self] response in
             guard let self = self else { return }
             
+            // Set boolean to check the pagination
+            // Prevent to call next page if there is no extra tracks
             if (response.resultCount < self.vm.iTrackPerPage) {
                 self.vm.bEnd = true
             }
@@ -123,9 +125,15 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // MARK: - UISegmentedControl
     
     @IBAction func segmentedValueChanged(_ sender: Any) {
+        // Clear all tracks
+        // Search all track again if segmented controller value changed
         self.vm.arrTrack.removeAll()
         self.vm.iCurrentPage = 1
+        self.updateUI(initSearch: true)
+        
+        // Search it again
         self.search()
+        
         self.sbSearch.resignFirstResponder()
     }
     
@@ -159,9 +167,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tvSearch.deselectRow(at: indexPath, animated: true)
+        
+        // Preset to player
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Search", bundle:nil)
+        let vcPlay = storyBoard.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
+        vcPlay.vm.track = self.vm.arrTrack[indexPath.row]
+        self.navigationController?.present(vcPlay, animated: true)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Pagination
+        // Call next page API if displayed the last item
         if (indexPath.row == self.vm.arrTrack.count - 1 && !self.vm.bEnd) {
             self.vm.iCurrentPage += 1
             self.search()
@@ -171,9 +187,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     // MARK: - Button
     
     @IBAction func btnSearchAgainOnClick(_ sender: Any) {
+        // Clear all tracks
         self.vm.arrTrack.removeAll()
         self.vm.iCurrentPage = 1
+        
         self.search()
+        
         self.sbSearch.resignFirstResponder()
     }
 }

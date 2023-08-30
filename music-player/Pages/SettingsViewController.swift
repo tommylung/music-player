@@ -36,7 +36,7 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row == 0) {
+        if indexPath.row == 0 {
             let languageCell = UITableViewCell()
             languageCell.textLabel?.text = NSLocalizedString("language_settings", comment: "")
             languageCell.accessoryType = .disclosureIndicator
@@ -46,7 +46,8 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == 0) {
+        if indexPath.row == 0 {
+            // Redirect to app's setting page
             let alert = UIAlertController(title: NSLocalizedString("change_language_title", comment: ""), message: NSLocalizedString("change_language_message", comment: ""), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: NSLocalizedString("common_go_to_settings", comment: ""), style: .default, handler: { _ in
                 guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
