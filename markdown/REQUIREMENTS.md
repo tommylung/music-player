@@ -87,5 +87,11 @@
 
 2. In modal presentation, there cannot tigger the `viewWillAppear` and `viewDidAppear` function by callback. Therefore, I added observer to observe the dismiss action.
 
+   ```swift
+   vcPlay.vm.psDismiss.subscribe(onNext: {
+       self.refreshFavourite()
+   }).disposed(by: self.vm.disposeBag)
+   ```
+
 3. When user clicked **Favourite** button in the player, the track will add into **Favourite**. User can browse the track which can be accessed later on the top of home page.
 </details>

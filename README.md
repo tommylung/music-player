@@ -19,6 +19,8 @@ Music player appliaction built by Swift.
 
 Please redirect to [Requirements](./markdown/REQUIREMENTS.md).
 
+For solutions, please redirect to [Solutions](./markdown/REQUIREMENTS.md#solutions).
+
 ## Guideline :hammer_and_wrench:
 
 Please redirect to [Guideline](./markdown/GUIDELINE.md).
