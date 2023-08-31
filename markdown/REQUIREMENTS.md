@@ -99,3 +99,13 @@
 
 4. Done :beers:.
 </details>
+
+# Future features
+
+1. Unit test & UI test
+
+2. Favourite function store to local devide
+
+3. Play previous & next for player
+
+4. Others
