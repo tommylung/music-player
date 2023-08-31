@@ -39,7 +39,7 @@
 
 3. Create a string file called `Localizable.string`.
 
-4. Go to the Inspector which in XCode's right hand side. Tick all the language which you needed. The string file will create the sub-file for each language.
+4. Go to the Inspector which in Xcode's right hand side. Tick all the language which you needed. The string file will create the sub-file for each language.
 
 5. Add below code to apply the localizable for each text.
 
