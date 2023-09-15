@@ -44,7 +44,7 @@ class PlayerViewController: UIViewController {
         self.imgvArtwork.image = nil
         self.lblTrackName.text = nil
         self.lblArtistName.text = nil
-        self.pvProgressBar.progress = 0.0
+        self.pvProgressBar.setProgress(0.0, animated: true)
         self.lblCurrentTime.text = self.secondToTime(seconds: 0)
         self.lblDuration.text = self.secondToTime(seconds: 0)
         self.btnPlayAndPause.setImage(UIImage(named: "Play"), for: .normal)
@@ -59,7 +59,9 @@ class PlayerViewController: UIViewController {
                     
                     self.lblDuration.text = self.secondToTime(seconds: duration)
                     self.lblCurrentTime.text = self.secondToTime(seconds: currentTime)
-                    self.pvProgressBar.progress = Float(currentTime / duration)
+                    UIView.animate(withDuration: 1, animations: { () -> Void in
+                        self.pvProgressBar.setProgress(Float(currentTime / duration), animated: true)
+                    })
                 }
             }
         })
