@@ -547,7 +547,7 @@
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
 			requirement = {
 				kind = exactVersion;
-				version = 4.2.0;
+				version = 4.3.0;
 			};
 		};
 		8B4F136C2AB43CFD00288E45 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

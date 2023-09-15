@@ -29,7 +29,7 @@ Please redirect to [Guideline](./markdown/GUIDELINE.md).
 
 | Package                                                       | Version                                                                                                 |
 | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [Alamofire](https://github.com/Alamofire/Alamofire)           | [![rxswift](https://img.shields.io/badge/pod-v5.7.1-blue)](https://github.com/Alamofire/Alamofire)      |
-| [AlamofireImage](https://github.com/Alamofire/AlamofireImage) | [![rxswift](https://img.shields.io/badge/pod-v4.2.0-blue)](https://github.com/Alamofire/AlamofireImage) |
+| [Alamofire](https://github.com/Alamofire/Alamofire)           | [![rxswift](https://img.shields.io/badge/pod-v5.8.0-blue)](https://github.com/Alamofire/Alamofire)      |
+| [AlamofireImage](https://github.com/Alamofire/AlamofireImage) | [![rxswift](https://img.shields.io/badge/pod-v4.3.0-blue)](https://github.com/Alamofire/AlamofireImage) |
 | [RxSwift](https://github.com/ReactiveX/RxSwift)               | [![rxswift](https://img.shields.io/badge/pod-v6.5.0-blue)](https://github.com/ReactiveX/RxSwift)        |
 | [SnapKit](https://github.com/SnapKit/SnapKit)                 | [![rxswift](https://img.shields.io/badge/pod-v5.6.0-blue)](https://github.com/SnapKit/SnapKit)          |
